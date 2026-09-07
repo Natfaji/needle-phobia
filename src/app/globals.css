@@ -20,7 +20,150 @@
 }
 
 body {
-  background: var(--background);
+  background: #101827;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.blow-detector {
+  width: min(100% - 2rem, 72rem);
+  margin: auto;
+  padding: 3rem 0;
+  color: #f4f7f2;
+}
+
+.blow-detector__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blow-detector__eyebrow {
+  margin: 0 0 0.5rem;
+  color: #ef8354;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.blow-detector h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.blow-detector__value {
+  color: #ef8354;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.signal-graph {
+  position: relative;
+  overflow: hidden;
+  min-height: 18rem;
+  border-top: 1px solid #354154;
+  border-bottom: 1px solid #354154;
+  background: #172235;
+}
+
+.signal-graph__svg {
+  display: block;
+  width: 100%;
+  height: 22rem;
+}
+
+.signal-graph__grid {
+  stroke: #354154;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-graph__player-line {
+  stroke: #ef8354;
+  stroke-dasharray: 4 8;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-graph__trail {
+  fill: none;
+  stroke: #8ed081;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-graph__player {
+  fill: #ef8354;
+  stroke: #fce8df;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-graph__axis,
+.signal-graph__player-label {
+  position: absolute;
+  color: #8693a8;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+}
+
+.signal-graph__axis {
+  left: 0.75rem;
+}
+
+.signal-graph__axis--top {
+  top: 0.75rem;
+}
+
+.signal-graph__axis--bottom {
+  bottom: 0.75rem;
+}
+
+.signal-graph__player-label {
+  bottom: 0.75rem;
+  left: 65%;
+  color: #ef8354;
+  transform: translateX(-50%);
+}
+
+.blow-detector__button {
+  margin-top: 2rem;
+  border: 1px solid #ef8354;
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.8rem 1.25rem;
+  color: #fce8df;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.blow-detector__button:hover {
+  background: #ef8354;
+  color: #101827;
+}
+
+@media (max-width: 40rem) {
+  .blow-detector {
+    padding: 2rem 0;
+  }
+
+  .blow-detector__header {
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .signal-graph__svg {
+    height: 16rem;
+  }
 }
